@@ -1,17 +1,23 @@
 import MeetupDetail from "@/components/meetups/MeetupDetail";
-import { DUMMY_MEETUPS } from "..";
 import { MongoClient } from "mongodb";
+import Head from "next/head";
 
 const MeetupDetails = ({ meetupData }) => {
   console.log(meetupData);
 
   return (
-    <MeetupDetail
-      image={meetupData.image}
-      title={meetupData.title}
-      address={meetupData.address}
-      description={meetupData.description}
-    />
+    <>
+      <Head>
+        <title>{meetupData.title}</title>
+        <meta name="description" content={meetupData.description} />
+      </Head>
+      <MeetupDetail
+        image={meetupData.image}
+        title={meetupData.title}
+        address={meetupData.address}
+        description={meetupData.description}
+      />
+    </>
   );
 };
 
